@@ -1,10 +1,11 @@
-import PageNav from "./PageNav";
-
+import Slidebar from "./Slidebar";
+import styles from "./AppLayout.module.css";
+import Map from "./Map";
 function AppLayout() {
   return (
-    <div>
-      <PageNav />
-      <h1>App</h1>
+    <div className={styles.app}>
+      <Slidebar />
+      <Map />
     </div>
   );
 }
