@@ -8,7 +8,8 @@ import AppLayout from "./components/AppLayout";
 import { useEffect, useState } from "react";
 import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
-// import City from "./components/City";
+import City from "./components/City";
+
 const BASED_URL = `http://localhost:8000`;
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
+          <Route path="cities/:id" element={<City />} />
           <Route
             path="countries"
             element={<CountryList cities={cities} isLoading={isLoading} />}

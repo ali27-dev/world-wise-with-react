@@ -1,8 +1,8 @@
+/* eslint-disable */
 import styles from "./CountryList.module.css";
 import CountryItem from "./CountryItem";
 import Spinner from "./Spinner";
 import Message from "./Message";
-import PropTypes from "prop-types";
 
 function CountryList({ cities, isLoading }) {
   if (isLoading) return <Spinner />;
@@ -24,11 +24,5 @@ function CountryList({ cities, isLoading }) {
     </ul>
   );
 }
-CountryList.propTypes = {
-  cities: PropTypes.array.isRequired,
-  isLoading: PropTypes.isRequired,
-  message: PropTypes.isRequired,
-  countries: PropTypes.isRequired,
-};
 
 export default CountryList;
