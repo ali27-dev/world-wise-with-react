@@ -22,8 +22,7 @@ function CityItem({ city }) {
   );
 }
 CityItem.propTypes = {
-  city: PropTypes.array.isRequired,
-  // isLoading: PropTypes.isRequired,
+  city: PropTypes.isRequired,
 };
 
 export default CityItem;
