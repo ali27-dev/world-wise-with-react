@@ -38,9 +38,28 @@ function CitiesProvider({ children }) {
       setIsLoading(false);
     }
   }
+  async function createCity(newCity) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASED_URL}/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      // console.log(data);
+      setIsCities((city) => [...city, data]);
+    } catch (error) {
+      alert("Something Went Wrong...");
+    } finally {
+      setIsLoading(false);
+    }
+  }
   return (
     <CeitiesContext.Provider
-      value={{ cities, isLoading, currentCity, getCity }}
+      value={{ cities, isLoading, currentCity, createCity, getCity }}
     >
       {children}
     </CeitiesContext.Provider>
@@ -52,4 +71,5 @@ function useCities() {
     throw new Error("CitiesContext was used outside the CitiesProvider...");
   return context;
 }
+
 export { CitiesProvider, useCities };
